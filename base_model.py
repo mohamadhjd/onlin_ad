@@ -1,4 +1,7 @@
+
 class BaseAdvertising:
+    totalClicks = 0
+
     def __init__(self, id):
         self.__id = id
         self.clicks = 0
@@ -13,6 +16,7 @@ class BaseAdvertising:
 
     def incClicks(self):
         self.clicks += 1
+        self.totalClicks += 1
 
     def incViews(self):
         self.views += 1
@@ -20,3 +24,6 @@ class BaseAdvertising:
     def get_describeMe(self):
         print(f'{self.describeMe} shorten the code')
         return self.describeMe
+
+    def get_totalClicks(self):
+        return self.totalClicks

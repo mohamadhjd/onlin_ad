@@ -2,7 +2,7 @@ from base_model import BaseAdvertising
 
 
 class Advertiser(BaseAdvertising):
-    def __init__(self, id,  name):
+    def __init__(self, id, name):
         super().__init__(id)
         self.__name = name
 
@@ -17,8 +17,8 @@ class Advertiser(BaseAdvertising):
         print("We have a class called Advertiser that contains the information and methods of system advertisers")
 
     @staticmethod
-    def getTotalClicks():
-        pass
+    def getTotalClicks(totalClicks):
+        print(totalClicks)
 
     def get_describeMe(self):
         print(f'{self.describeMe} show advertiser')
