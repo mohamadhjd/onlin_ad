@@ -18,4 +18,5 @@ class BaseAdvertising:
         self.views += 1
 
     def get_describeMe(self):
+        print(f'{self.describeMe} shorten the code')
         return self.describeMe
