@@ -8,11 +8,15 @@ class BaseAdvertising:
         self.__clicks = 0
         self.__views = 0
 
+    def checkId(self):
+        if self.__id <= 0:
+            print("Id have to the integer")
+
     def getClicks(self):
-        print(self.__clicks)
+        return self.__clicks
 
     def getViews(self):
-        print(self.__views)
+        return self.__views
 
     def incClicks(self):
         self.__clicks += 1

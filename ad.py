@@ -10,21 +10,22 @@ class Ad(BaseAdvertising):
         self.__imgUrl = imgUrl
         self.__link = link
         self.advertiser = advertiser
+        self.checkId()
 
     def getTitle(self):
-        print(self.__title)
+        return self.__title
 
     def setTitle(self, newTitle):
         self.__title = newTitle
 
     def getImgUrl(self):
-        print(self.__imgUrl)
+        return self.__imgUrl
 
     def setImgUrl(self, newImgUrl):
         self.__imgUrl = newImgUrl
 
     def getLink(self):
-        print(self.__link)
+        return self.__link
 
     def setLink(self, newLink):
         self.__link = newLink

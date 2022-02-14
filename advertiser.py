@@ -7,9 +7,10 @@ class Advertiser(BaseAdvertising):
     def __init__(self, id, name):
         super().__init__(id)
         self.__name = name
+        self.checkId()
 
     def getName(self):
-        print(self.__name)
+        return self.__name
 
     def setName(self, newNme):
         self.__name = newNme
