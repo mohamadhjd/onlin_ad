@@ -3,10 +3,10 @@ class BaseAdvertising:
     totalClicks = 0
     describeMe = "shorten the code"
 
-    def __init__(self, id):
+    def __init__(self, id=1, clicks=0, views=0):
         self.__id = id
-        self.__clicks = 0
-        self.__views = 0
+        self.__clicks = clicks
+        self.__views = views
 
     def checkId(self):
         if self.__id <= 0:

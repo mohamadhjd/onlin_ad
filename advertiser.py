@@ -15,9 +15,8 @@ class Advertiser(BaseAdvertising):
     def setName(self, newNme):
         self.__name = newNme
 
-    @staticmethod
-    def help():
-        print("We have a class called Advertiser that contains the information and methods of system advertisers")
+    def help(self):
+        return f'name of advertiser is {self.__name}.count of clicks is {self.getClicks()} and count of views {self.getViews()}'
 
     @staticmethod
     def getTotalClicks(totalClicks):
