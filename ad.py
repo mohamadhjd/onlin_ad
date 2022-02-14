@@ -4,13 +4,25 @@ from base_model import BaseAdvertising
 class Ad(BaseAdvertising):
     describeMe = "show ad"
 
+    idList = []
+
     def __init__(self, id, title, imgUrl, link, advertiser):
         super().__init__(id)
+        self.id = id
+        self.idList.insert(100, self.id)
         self.__title = title
         self.__imgUrl = imgUrl
-        self._link = link
+        self.__link = link
         self.advertiser = advertiser
         self.checkId()
+
+    def checkId(self):
+        count = 0
+        for i in range(0, len(self.idList)):
+            if self.idList[i] == self.id:
+                count += 1
+            if count >= 2:
+                print("Id have to be unique")
 
     @property
     def title(self):
@@ -30,11 +42,11 @@ class Ad(BaseAdvertising):
 
     @property
     def link(self):
-        return self._link
+        return self.__link
 
     @link.setter
     def link(self, newLink):
-        self._link = newLink
+        self.__link = newLink
 
     @staticmethod
     def describeMe(DescribeMe=describeMe):

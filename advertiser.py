@@ -1,14 +1,26 @@
 from base_model import BaseAdvertising
-from ad import Ad
 
 
 class Advertiser(BaseAdvertising):
     describeMe = "show advertiser"
 
+    idList = []
+
     def __init__(self, id, name):
         super().__init__(id)
+        self.id = id
+        self.idList.insert(100, self.id)
         self.__name = name
         self.checkId()
+
+    def checkId(self):
+        count = 0
+        for i in range(0, len(self.idList)):
+            if self.idList[i] == self.id:
+                count += 1
+            if count >= 2:
+                print("Id have to be unique")
+
 
     @property
     def name(self):
