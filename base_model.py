@@ -1,4 +1,3 @@
-
 class BaseAdvertising:
     totalClicks = 0
     describeMe = "shorten the code"
@@ -12,10 +11,12 @@ class BaseAdvertising:
         if self.__id <= 0:
             print("Id have to the integer")
 
-    def getClicks(self):
+    @property
+    def clicks(self):
         return self.__clicks
 
-    def getViews(self):
+    @property
+    def views(self):
         return self.__views
 
     def incClicks(self):

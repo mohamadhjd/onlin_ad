@@ -8,29 +8,34 @@ class Ad(BaseAdvertising):
         super().__init__(id)
         self.__title = title
         self.__imgUrl = imgUrl
-        self.__link = link
+        self._link = link
         self.advertiser = advertiser
         self.checkId()
 
-    def getTitle(self):
+    @property
+    def title(self):
         return self.__title
 
-    def setTitle(self, newTitle):
+    @title.setter
+    def title(self, newTitle):
         self.__title = newTitle
 
-    def getImgUrl(self):
+    @property
+    def imgUrl(self):
         return self.__imgUrl
 
-    def setImgUrl(self, newImgUrl):
+    @imgUrl.setter
+    def imgUrl(self, newImgUrl):
         self.__imgUrl = newImgUrl
 
-    def getLink(self):
-        return self.__link
+    @property
+    def link(self):
+        return self._link
 
-    def setLink(self, newLink):
-        self.__link = newLink
+    @link.setter
+    def link(self, newLink):
+        self._link = newLink
 
     @staticmethod
     def describeMe(DescribeMe=describeMe):
         return "the task of this class" + DescribeMe
-

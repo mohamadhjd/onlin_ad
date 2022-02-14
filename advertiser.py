@@ -1,4 +1,5 @@
 from base_model import BaseAdvertising
+from ad import Ad
 
 
 class Advertiser(BaseAdvertising):
@@ -9,18 +10,21 @@ class Advertiser(BaseAdvertising):
         self.__name = name
         self.checkId()
 
-    def getName(self):
+    @property
+    def name(self):
         return self.__name
 
-    def setName(self, newNme):
-        self.__name = newNme
+    @name.setter
+    def name(self, newName):
+        self.__name = newName
 
+    @property
     def help(self):
-        return f'name of advertiser is {self.__name}.count of clicks is {self.getClicks()} and count of views {self.getViews()}'
+        return f'name of advertiser is {self.__name}.count of clicks is {self.getClicks()} and count of views {self.getViews()} '
 
     @staticmethod
-    def getTotalClicks(totalClicks):
-        print(totalClicks)
+    def getTotalClicks(count):
+        return count
 
     @staticmethod
     def describeMe(DescribeMe=describeMe):
