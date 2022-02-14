@@ -2,6 +2,7 @@ from base_model import BaseAdvertising
 
 
 class Ad(BaseAdvertising):
+    describeMe = "show ad"
 
     def __init__(self, id, title, imgUrl, link, advertiser):
         super().__init__(id)
@@ -28,6 +29,7 @@ class Ad(BaseAdvertising):
     def setLink(self, newLink):
         self.__link = newLink
 
-    def get_describeMe(self):
-        print(f'{self.describeMe} show ad')
+    @staticmethod
+    def describeMe(DescribeMe=describeMe):
+        return "the task of this class" + DescribeMe
 

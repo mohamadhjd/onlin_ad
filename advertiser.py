@@ -2,6 +2,8 @@ from base_model import BaseAdvertising
 
 
 class Advertiser(BaseAdvertising):
+    describeMe = "show advertiser"
+
     def __init__(self, id, name):
         super().__init__(id)
         self.__name = name
@@ -20,5 +22,6 @@ class Advertiser(BaseAdvertising):
     def getTotalClicks(totalClicks):
         print(totalClicks)
 
-    def get_describeMe(self):
-        print(f'{self.describeMe} show advertiser')
+    @staticmethod
+    def describeMe(DescribeMe=describeMe):
+        return "the task of this class" + DescribeMe

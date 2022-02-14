@@ -1,29 +1,29 @@
 
 class BaseAdvertising:
     totalClicks = 0
+    describeMe = "shorten the code"
 
     def __init__(self, id):
         self.__id = id
-        self.clicks = 0
-        self.views = 0
-        self.describeMe = "The task of this class"
+        self.__clicks = 0
+        self.__views = 0
 
     def getClicks(self):
-        print(self.clicks)
+        print(self.__clicks)
 
     def getViews(self):
-        print(self.views)
+        print(self.__views)
 
     def incClicks(self):
-        self.clicks += 1
+        self.__clicks += 1
         self.totalClicks += 1
 
     def incViews(self):
-        self.views += 1
+        self.__views += 1
 
-    def get_describeMe(self):
-        print(f'{self.describeMe} shorten the code')
-        return self.describeMe
+    @staticmethod
+    def describeMe(DescribeMe=describeMe):
+        return "the task of this class" + DescribeMe
 
     def get_totalClicks(self):
         return self.totalClicks
