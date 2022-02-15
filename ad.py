@@ -24,6 +24,10 @@ class Ad(BaseAdvertising):
             if count >= 2:
                 print("Id have to be unique")
 
+    def incClicks(self):
+        super()
+        self.advertiser.incClicks()
+
     @property
     def title(self):
         return self.__title

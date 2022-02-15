@@ -13,8 +13,6 @@ print(baseAdvertising.describeMe())
 print(ad2.describeMe())
 print(advertiser1.describeMe())
 ad1.incClicks()
-ad1.link = 'new lik'
-print(ad1.clicks)
 print(ad1.link)
 advertiser1.incClicks()
 advertiser1.incClicks()

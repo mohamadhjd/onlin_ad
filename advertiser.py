@@ -26,7 +26,7 @@ class Advertiser(BaseAdvertising):
     def incClicks(self):
         self.__clicks += 1
         Advertiser.total_clicks += 1
-
+        return Advertiser.total_clicks
     @property
     def clicks(self):
         return self.__clicks
@@ -44,8 +44,8 @@ class Advertiser(BaseAdvertising):
         return f'name of advertiser is {self.__name}.count of clicks is {self.getClicks()} and count of views {self.getViews()} '
 
     @staticmethod
-    def getTotalClicks(count=total_clicks):
-        print(count)
+    def getTotalClicks(totalClicks=total_clicks):
+        print(totalClicks)
 
     @staticmethod
     def describeMe(DescribeMe=describeMe):
