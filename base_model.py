@@ -1,5 +1,4 @@
 class BaseAdvertising:
-    totalClicks = 0
     describeMe = "shorten the code"
 
     def __init__(self, id=1, clicks=0, views=0):
@@ -21,7 +20,6 @@ class BaseAdvertising:
 
     def incClicks(self):
         self.__clicks += 1
-        self.totalClicks += 1
 
     def incViews(self):
         self.__views += 1
