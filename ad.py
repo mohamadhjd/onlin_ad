@@ -3,30 +3,24 @@ from base_model import BaseAdvertising
 
 class Ad(BaseAdvertising):
     describeMe = "show ad"
+    count_id = 1
 
-    idList = []
-
-    def __init__(self, id, title, imgUrl, link, advertiser):
-        super().__init__(id)
-        self.id = id
-        self.idList.insert(100, self.id)
+    def __init__(self, title, imgUrl, link, advertiser):
+        super().__init__()
+        self.__id = Ad.count_id
         self.__title = title
         self.__imgUrl = imgUrl
         self.__link = link
-        self.advertiser = advertiser
-        self.checkId()
+        self.__advertiser = advertiser
+        Ad.count_id += 1
 
-    def checkId(self):
-        count = 0
-        for i in range(0, len(self.idList)):
-            if self.idList[i] == self.id:
-                count += 1
-            if count >= 2:
-                print("Id have to be unique")
+    def inc_clicks(self):
+        super(Ad, self).inc_clicks()
+        self.__advertiser.incClicks()
 
-    def incClicks(self):
-        super()
-        self.advertiser.incClicks()
+    @property
+    def id(self):
+        return self.__id
 
     @property
     def title(self):
@@ -39,6 +33,9 @@ class Ad(BaseAdvertising):
     @property
     def imgUrl(self):
         return self.__imgUrl
+
+    def help(self):
+        return f'title of ad is {self.__title} . imgUrl is {self.__imgUrl} and link is {self.__link} . count of clicks is {self.clicks} and count of views {self.views} '
 
     @imgUrl.setter
     def imgUrl(self, newImgUrl):
@@ -53,5 +50,5 @@ class Ad(BaseAdvertising):
         self.__link = newLink
 
     @staticmethod
-    def describeMe(DescribeMe=describeMe):
+    def describe_me(DescribeMe=describeMe):
         return "the task of this class" + DescribeMe

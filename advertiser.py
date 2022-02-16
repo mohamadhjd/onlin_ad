@@ -4,29 +4,24 @@ from base_model import BaseAdvertising
 class Advertiser(BaseAdvertising):
     describeMe = "show advertiser"
 
-    idList = []
     total_clicks = 0
+    count_id = 1
 
-    def __init__(self, id, name, clicks=0):
-        super().__init__(id, clicks)
-        self.__id = id
+    def __init__(self, name, clicks=0):
+        super().__init__(clicks)
+        self.__id = Advertiser.count_id
         self.__clicks = clicks
-        self.idList.insert(100, self.__id)
         self.__name = name
-        self.checkId()
+        Advertiser.count_id += 1
 
-    def checkId(self):
-        count = 0
-        for i in range(0, len(self.idList)):
-            if self.idList[i] == self.__id:
-                count += 1
-            if count >= 2:
-                print("Id have to be unique")
+    @property
+    def id(self):
+        return self.__id
 
-    def incClicks(self):
-        self.__clicks += 1
+    def inc_clicks(self):
+        super(Advertiser, self).inc_clicks()
         Advertiser.total_clicks += 1
-        return Advertiser.total_clicks
+
     @property
     def clicks(self):
         return self.__clicks
@@ -39,14 +34,13 @@ class Advertiser(BaseAdvertising):
     def name(self, newName):
         self.__name = newName
 
-    @property
     def help(self):
-        return f'name of advertiser is {self.__name}.count of clicks is {self.getClicks()} and count of views {self.getViews()} '
+        return f'name of advertiser is {self.__name}.count of clicks is {self.clicks} and count of views {self.views}'
 
     @staticmethod
-    def getTotalClicks(totalClicks=total_clicks):
-        print(totalClicks)
+    def get_total_clicks():
+        return Advertiser.total_clicks
 
     @staticmethod
-    def describeMe(DescribeMe=describeMe):
-        return "the task of this class" + DescribeMe
+    def describe_me():
+        return "the task of this class" + Advertiser.describeMe

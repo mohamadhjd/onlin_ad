@@ -1,14 +1,12 @@
 class BaseAdvertising:
     describeMe = "shorten the code"
+    count_id = 0
 
-    def __init__(self, id=1, clicks=0, views=0):
-        self.__id = id
+    def __init__(self, clicks=0, views=0):
+        self.__id = BaseAdvertising.count_id
         self.__clicks = clicks
         self.__views = views
-
-    def checkId(self):
-        if self.__id <= 0:
-            print("Id have to the integer")
+        BaseAdvertising.count_id += 1
 
     @property
     def clicks(self):
@@ -18,15 +16,13 @@ class BaseAdvertising:
     def views(self):
         return self.__views
 
-    def incClicks(self):
+    def inc_clicks(self):
         self.__clicks += 1
 
-    def incViews(self):
+    def inc_views(self):
         self.__views += 1
 
     @staticmethod
-    def describeMe(DescribeMe=describeMe):
-        return "the task of this class" + DescribeMe
+    def describe_me():
+        return "the task of this class" + BaseAdvertising.describeMe
 
-    def get_totalClicks(self):
-        return self.totalClicks
